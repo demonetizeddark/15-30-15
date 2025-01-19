@@ -1,5 +1,20 @@
 var audio = new Audio('asset/connect_power.mp3');
 
+function mobilePrompt() {
+    $('.timer').hide();
+    $('body').append(`<div class="prompt"><h1>sorry man</h1><p>click this button, this is required for audio to work</p><button type="button" class="forgiven">it's alr mannn</button></div>`)
+    document.querySelector('.forgiven').addEventListener('click', () => {
+        $('.prompt').remove();
+        $('.timer').show();
+    })
+}
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    // true for mobile device
+    mobilePrompt()
+  }
+  
+
 function batman() {
     $('body')
         .addClass('dark')
