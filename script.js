@@ -16,6 +16,18 @@ const sounds = [
     {
         "1": "asset/ls08.ogg",
         "2": "asset/ls09.ogg"
+    },
+    {
+        "1": "asset/beep1.ogg",
+        "2": "asset/beep2.ogg"
+    },
+    {
+        "1": "asset/beep_stutter1.ogg",
+        "2": "asset/beep_stutter2.ogg"
+    },
+    {
+        "1": "asset/long1.ogg",
+        "2": "asset/long2.ogg"
     }
 ];
 console.log(`confirm local storage reads ${d}`)
