@@ -1,8 +1,5 @@
-var d = localStorage.getItem('sound')
-document.getElementById('sound').addEventListener('change',function(){
-    location.reload();
-    localStorage.setItem(`sound`,`${document.getElementById('sound').value}`)
-});
+const dd = document.getElementById('sound');
+var d = localStorage.getItem('sound');
 const sounds = [
     {
         "1": "asset/connect_power.mp3",
@@ -21,10 +18,19 @@ const sounds = [
         "2": "asset/ls09.ogg"
     }
 ];
+console.log(`confirm local storage reads ${d}`)
+$(document).ready(() => {
+    dd.value = d;
+    console.log('page loaded')
+})
+document.getElementById('sound').addEventListener('change', function() {
+    location.reload();
+    localStorage.setItem(`sound`,`${document.getElementById('sound').value}`)
+});
 const select = sounds[d];
 var audio1 = new Audio(`${select[1]}`);
 var audio2 = new Audio(`${select[2]}`);
-console.log(select)
+console.log(`confirm select reads ` + select);
 
 function mobilePrompt() {
     $('.timer').hide();
@@ -38,7 +44,7 @@ function mobilePrompt() {
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     // true for mobile device
     mobilePrompt()
-  }
+}
   
 
 function batman() {
