@@ -1,6 +1,7 @@
-var d = document.getElementById('sound').value
+var d = localStorage.getItem('sound')
 document.getElementById('sound').addEventListener('change',function(){
     location.reload();
+    localStorage.setItem(`sound`,`${document.getElementById('sound').value}`)
 });
 const sounds = [
     {
