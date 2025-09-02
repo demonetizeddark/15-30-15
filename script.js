@@ -1,4 +1,29 @@
-var audio = new Audio('asset/connect_power.mp3');
+var d = document.getElementById('sound').value
+document.getElementById('sound').addEventListener('change',function(){
+    location.reload();
+});
+const sounds = [
+    {
+        "1": "asset/connect_power.mp3",
+        "2": "asset/connect_power.mp3"
+    },
+    {
+        "1": "asset/thud.mp3",
+        "2": "asset/thud.mp3"
+    },
+    {
+        "1": "asset/bliss2.ogg",
+        "2": "asset/bliss1.ogg"
+    },
+    {
+        "1": "asset/ls08.ogg",
+        "2": "asset/ls09.ogg"
+    }
+];
+const select = sounds[d];
+var audio1 = new Audio(`${select[1]}`);
+var audio2 = new Audio(`${select[2]}`);
+console.log(select)
 
 function mobilePrompt() {
     $('.timer').hide();
@@ -22,7 +47,11 @@ function batman() {
     $('.catch')
         .addClass('dark')
         .removeClass('light')
-        console.log("YOU UNDERESTIMATE THE POWER OF THE DARK SIDE")
+    $('.reminder')
+        .addClass('dark')
+        .removeClass('light')
+    console.log("YOU UNDERESTIMATE THE POWER OF THE DARK SIDE")
+    audio1.play();
 }
 function starbucks() {
     $('body')
@@ -31,7 +60,11 @@ function starbucks() {
     $('.catch')
         .addClass('light')
         .removeClass('dark')
-        console.log("OMG PUMPKIN SPICE !!!!! 🤪🤪😝😝👯‍♀️👯‍♀️")
+    $('.reminder')
+        .addClass('light')
+        .removeClass('dark')
+    console.log("OMG PUMPKIN SPICE !!!!! 🤪🤪😝😝👯‍♀️👯‍♀️")
+    audio2.play();
 }
 
 function timer(count) {
@@ -42,7 +75,7 @@ function timer(count) {
         let counter = setInterval(() => {
         count = count - 1;
         if (count < 1) {
-            audio.play();
+            // audio.play();
             clearInterval(counter);
             resolve(); //it is resolved when the count finishes
             return;
