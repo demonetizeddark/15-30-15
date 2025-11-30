@@ -41,8 +41,12 @@ document.getElementById('sound').addEventListener('change', function() {
 });
 const select = sounds[d];
 var audio1 = new Audio(`${select[1]}`);
+    audio1.load();
 var audio2 = new Audio(`${select[2]}`);
-console.log(`confirm select reads ` + select);
+    audio2.load();
+
+
+console.log(`confirm select reads ` + `${select[1]}, ${select[2]}`);
 
 function mobilePrompt() {
     $('.timer').hide();
